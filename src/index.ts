@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import 'dotenv/config';
+import userRouter from './routes/userRouter';
 
 //db
 mongoose.connect(process.env.MANGODB_URL as string)
@@ -14,9 +15,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 
-app.get("/api/v1/test", async (req: Request, res: Response) => {
-    res.status(201).json({ message: "Hello from the server"});
-});
+app.use("/api/vi/users", userRouter)
 
 app.listen(8080, () => {
     console.log('Server listening at localhost:8080');
