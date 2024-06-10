@@ -38,3 +38,15 @@ export const validateUser = [
         .withMessage("Last name is required"),
     handleValidationErrors,
 ];
+
+export const validateLogin = [
+    body("email")
+        .isEmail()
+        .notEmpty()
+        .withMessage("Please enter a valid email address"),
+    body("password")
+        .notEmpty()
+        .isLength({ min: 6 })
+        .withMessage("Password must be at least 6 characters long"),
+    handleValidationErrors,
+]
