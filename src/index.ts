@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 
-app.use("/api/vi/users", userRouter)
+app.use("/api/v1/users", userRouter)
 
 app.listen(8080, () => {
     console.log('Server listening at localhost:8080');
