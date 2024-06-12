@@ -20,7 +20,6 @@ const verifyAuthToken = (req: Request, res: Response, next: NextFunction) => {
 
         next();
     } catch (error) {
-        console.error(error.message);
         return res.status(400).json({ message: "unauthorized" });
     }
 };
