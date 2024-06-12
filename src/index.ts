@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import cookieParse from "cookie-parser";
 import "dotenv/config";
 import authRoutes from "./routes/authRouter";
 import userRoutes from "./routes/userRouter";
@@ -12,6 +13,7 @@ mongoose.connect(process.env.MANGODB_URL as string)
     });
 
 const app = express();
+app.use(cookieParse());
 app.use(cors({
     origin: process.env.CLIENT_URL,
     credentials: true,
