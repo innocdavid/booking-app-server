@@ -7,10 +7,7 @@ import authRoutes from "./routes/authRouter";
 import userRoutes from "./routes/userRouter";
 
 //db
-mongoose.connect(process.env.MANGODB_URL as string)
-    .then(() => {
-        console.log("Conected to database");
-    });
+mongoose.connect(process.env.MANGODB_URL as string);
 
 const app = express();
 app.use(cookieParse());
