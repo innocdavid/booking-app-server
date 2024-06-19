@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import cookieParse from "cookie-parser";
@@ -17,6 +17,11 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// test deployment
+app.get("/health", async (req: Request, res: Response) => {
+    res.send({ message: "health OK!" });
+});
 
 // routes
 app.use("/api/v1/auth", authRoutes)
